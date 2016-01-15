@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <style type="text/css">
+        
+        #main{
+            
+            border: 1px solid black;
+            width: 600px;
+            height: 700px;
+            position:relative;
+            margin: auto;
+        }
+        
+        .bet_time_right {
+        position:absolute;
+        bottom:0;
+        right:0;
+        margin-right: 100px;
+        }
+        
+        .bet_time_left {
+        position:absolute;
+        bottom:0;
+        left:0;
+        margin-left: 100px;
+        }
+        
+        
+        .bet_time_left button{
+        width: 100px;
+        height: 40px;
+        }
+        
+        
+        .bet_time_right button{
+        width: 100px;
+        height: 40px;
+        }
+    </style>
+
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+                $("#next").click(function() {
+                window.location = "examples2.html";
+                });
+
+                $("#previous").click(function() {
+                window.location = "index.html";
+                });
+				
+				
+			//alert($("[scene]").attr("scene"));
+        
+		
+			
+			
+			
+			 $("[words]").change(function () {
+			//$("#wsel").html($(this).val());
+			//alert($(this).val());
+			
+			
+			var myObject = new Object();
+			myObject.scene = $("[scene]").attr("scene");
+			//myObject.words = '['+$(this).attr("words")+']';
+			myObject.words = '['+$(this).attr("words")+']';
+			//var myString = JSON.stringify(myObject);
+			var mama = new Object();
+			mama.QSession=myObject;
+			mama.uid='1';
+			var myMamaString = JSON.stringify(mama);
+			alert("http://localhost:8080/pureQuadroo/quadrooServer/$setSession?quadroodata={W:"+myMamaString+"}");
+			
+			$.ajax({url:"http://localhost:8080/pureQuadroo/quadrooServer/$setSession?quadroodata={W:"+myMamaString+"}",success:function(result){
+    //$("#div1").html(result);
+  			}});
+			
+			//alert($(this).attr("words"));
+			
+			//{W:{QSession:[{scene:1,words:[1,2]},{scene:1,words:[1,2]}] },uid:1}
+			
+			});
+		    });
+            
+            $(window).unload(function() {
+            //alert("Save Data to Server");
+            });
+
+            $(window).load(function() {
+            alert("Welcome");
+           	$.ajax({url:"http://localhost:8080/pureQuadroo/quadrooServer/getSession?quadroodata={uid:1}",success:function(result){
+           	    $("#div1").html(result);
+           	    alert(result);
+           	    }});
+           	alert("Ajax end");				
+	
+		
+			});
+		
+		
+
+
+    </script>
+</head>
+
+<body>
+  <div id="main">
+      <a href="examples1.html">Example 2</a>
+      <a href="examples2.html">Example 3</a>
+      <a href="examples3.html">Visit W3Schools</a>
+    <H1>Booking Illustration</H1>
+    <H2>Hotel</H2>
+    <p> Pronab puts Contents </p>
+    
+    <p>
+        
+        <form action="" scene="hotelreservation">
+
+        <input type="radio" name="booking" word ="sel1"  value="Hotel 1">Hotel 1<br>
+        <input type="radio" name="booking" word ="2" value="Hotel 2">Hotel 2<br>
+        <input type="radio" name="booking" word ="3" value="Hotel 3">Hotel 3<br>
+        <input type="radio" name="booking" word ="4" value="Hotel 4">Hotel 4<br>
+        <input type="radio" name="booking" word ="sel5" value="Hotel 5">Hotel 5<br>
+        <input type="radio" name="booking" word ="6" value="Hotel 6">Hotel 6
+        
+        
+        </form>
+
+    </p>
+    <span class="bet_time_left"><button type="button" id="previous">Previous</button></span>
+    <span class="bet_time_right"><button type="button" id="next">Next</button></span>
+  </div>
+    <div id="div1" style="border: 1px solid black"></div>
+    
+
+</body>
+</html>

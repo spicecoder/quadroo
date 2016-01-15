@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <style type="text/css">
+        
+        #main{
+            
+            border: 1px solid black;
+            width: 600px;
+            height: 700px;
+            position:relative;
+            margin: auto;
+        }
+        
+        .bet_time_right {
+        position:absolute;
+        bottom:0;
+        right:0;
+        margin-right: 100px;
+        }
+        
+        .bet_time_left {
+        position:absolute;
+        bottom:0;
+        left:0;
+        margin-left: 100px;
+        }
+        
+        
+        .bet_time_left button{
+        width: 100px;
+        height: 40px;
+        }
+        
+        
+        .bet_time_right button{
+        width: 100px;
+        height: 40px;
+        }
+    </style>
+
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+                $("#next").click(function() {
+                window.location = "examples2.html";
+                });
+
+                $("#previous").click(function() {
+                window.location = "index.html";
+                });
+            });
+            
+            $(window).unload(function() {
+            alert("Save Data to Server");
+            });
+
+            $(window).load(function() {
+            alert("Welcome");
+        });
+    </script>
+</head>
+
+<body>
+  <div id="main">
+      <a href="examples1.html">Example 2</a>
+      <a href="examples2.html">Example 3</a>
+      <a href="examples3.html">Visit W3Schools</a>
+    <H1>Booking Illustration</H1>
+    <H2>Hotel</H2>
+    <p> Pronab puts Contents </p>
+    
+    <p>
+        
+        <form action="" >
+
+        <input type="radio" name="booking" value="male">Hotel 1<br>
+        <input type="radio" name="booking" value="female">Hotel 2<br>
+        <input type="radio" name="booking" value="male">Hotel 3<br>
+        <input type="radio" name="booking" value="female">Hotel 4<br>
+        <input type="radio" name="booking" value="male">Hotel 5<br>
+        <input type="radio" name="booking" value="female">Hotel 6
+        
+        
+        </form>
+
+    </p>
+    <span class="bet_time_left"><button type="button" id="previous">Previous</button></span>
+    <span class="bet_time_right"><button type="button" id="next">Next</button></span>
+  </div>
+    
+    
+
+</body>
+</html>

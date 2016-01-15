@@ -1,0 +1,396 @@
+<!doctype html>
+ 
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>jQuadroo Interaction Template</title>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+    <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    
+    <script>
+    
+    
+    $(function() {
+    	
+ $("#flowaccord").accordion({
+      collapsible: true,
+      active: false
+});
+
+	  $( "#sceneaccord" ).accordion({
+      collapsible: true,
+      active: false
+});
+	   $( "#wordaccord" ).accordion({
+      collapsible: true,
+      active: false
+});
+ $( "#scenewordaccord" ).accordion({
+      collapsible: true,
+      active: false
+});
+$( "#flowsceneaccord" ).accordion({
+      collapsible: true,
+      active: false
+});
+        $( "#tabs" ).tabs();
+    });
+    </script>
+</head>
+<body>
+ <div id="current">
+ <h1  >Current Selections</h1> Word:<span id="wsel"> </span> ;Scene:<span id="ssel"> </span> ; Flow:<span id="fsel"> </span> ;</span>
+ 
+ </div>
+<div id="tabs">
+    <ul>
+        <li><a href="#flowTab">FLOWS <div align="center"><img src="image/flow.png" alt="Words image" width="55" height="42"></div>   </a></li>
+        <li><a href="#sceneTab">SCENES <div align="center"><img src="image/scene.png" alt="Words image" width="42" height="42"></div></a></li>
+        <li><a href="#wordTab">WORDS  <div align="center"><img src="image/word.png" alt="Words image" width="60" height="42"></div></a></li>
+		 <li><a href="#scenewordTab">SceneWORDS  <div align="center"><img src="image/sceneword.png" alt="SceneWords image" width="60" height="42"></div></a></li>
+		 <li><a href="#flowsceneTab">FlowSCENES  <div align="center"><img src="image/flowscene.png" alt="FlowScenes image" width="60" height="42"></div></a></li>
+		 
+
+
+   </ul>
+    <div id="flowTab">
+        <div id="flowaccord">
+    <h3>ADD Flows</h3>
+    <div>
+       Quadroo -ADD FLOWS
+    </div>
+    <h3>UPDATE Flows</h3>
+    <div>
+        <p>
+        Quadroo - Update FLOWS
+        </p>
+    </div>
+    <h3>DELETE Flows</h3>
+    <div>
+        <p>
+        Quadroo - Delete FLOWS
+        </p>
+        
+    </div>
+    
+    </div>
+	</div>
+
+    <div id="sceneTab">
+         <div id="sceneaccord">
+    <h3>ADD Scene</h3>
+    <div>
+       Quadroo -ADD SCENES
+    </div>
+    <h3>UPDATE Scene</h3>
+    <div>
+        <p>
+        Quadroo - Update SCENES
+        </p>
+    </div>
+    <h3>DELETE Scene</h3>
+    <div>
+        <p>
+        Quadroo - Delete SCENES
+        </p>
+        
+    </div>
+    </div>   </div>
+    <div id="wordTab">
+       <div id="wordaccord">
+    <h3>ADD Word</h3>
+    <div>
+       Quadroo -ADD WORDS
+       <div > 
+<span id="orangechunks" lvl="words"> <textarea style="width: 160px; height: 45px;"   id="wt"  >Input </textarea></span> 
+</div>
+<div >
+
+<button onclick="doAddWord();"> ADD: <img src="images/concepts.png"> </button>
+</div>
+ 
+<div id="reply"> </div>
+    </div>
+    
+    <h3>UPDATE Word</h3>
+    <div>
+        <p>
+        Quadroo - Update WORDS
+        </p>
+        <button onclick="doListWord('#updreplylist');"> ListWords <img src="images/concepts.png"> </button>
+              <div></div>
+               <div id="updreplylist"> </div>
+        
+      <div > 
+<span id="orangechunks" lvl="words"> <textarea style="width: 160px; height: 45px;"   id="uwt"  >Input </textarea></span> 
+</div>
+<div >
+
+<button onclick="doUpdateWord();"> Update: <img src="images/concepts.png"> </button>
+</div>
+
+    </div>
+    <h3>DELETE Word</h3>
+    <div>
+        <p>
+        Quadroo - Delete WORDS
+        </p>
+        
+          <div > 
+           <button onclick="doDeleteWord();"> Delete: <img src="images/concepts.png"> </button>    
+             </div> 
+
+
+</div>
+
+    </div>
+    <h3>List Word</h3>
+    <div>
+        <p>
+        Quadroo - List WORDS
+        </p>
+        <button onclick="doListWord('#replylist');"> ListWords <img src="images/concepts.png"> </button>
+              <div></div>
+               <div id="replylist"> </div>
+        
+        
+        
+    </div>
+    
+</div> 
+  </div>
+   <div id="scenewordTab">
+       <div id="scenewordaccord">
+    <h3>ADD Words in Scene</h3>
+    <div>
+       Quadroo Scene -ADD WORDS in Scene
+    </div>
+    <h3>UPDATE Words in Scene</h3>
+    <div>
+        <p>
+        Quadroo - Update WORDS in Scene
+        </p>
+    </div>
+    <h3>DELETE words in Scene</h3>
+    <div>
+        <p>
+        Quadroo - Delete WORDS in Scene
+        </p>
+        
+    </div>
+    
+</div> 
+  </div>
+   <div id="flowsceneTab">
+       <div id="flowsceneaccord">
+    <h3>ADD Flow Scenes</h3>
+    <div>
+       Quadroo : Flow: -ADD Scenes
+    </div>
+    <h3>UPDATE Flow Scenes</h3>
+    <div>
+        <p>
+        Quadroo : Flow: - Update Scenes
+        </p>
+    </div>
+    <h3>DELETE Flow Scenes</h3>
+    <div>
+        <p>
+        Quadroo Flow - Delete Scenes
+        </p>
+        
+    </div>
+    
+</div> 
+  </div>
+</div>
+ <script>
+function doAddWord(){
+	var data = $('#wt').val() ;
+	alert(data);
+	url = 'http://localhost:8080/pureQuadroo/quadrooServer/$AddW';
+	addQWord(url,data);
+}
+
+function doUpdateWord(){
+	var data = $('#uwt').val() ;
+	var data1 = $('#wsel').val() ;
+	
+	alert(data);
+	url = 'http://localhost:8080/pureQuadroo/quadrooServer/$CWord';
+	updateQWord(url,data,data1);
+}
+
+function doDeleteWord(){
+	var data = $('#wsel').html() ;
+	alert("selection" +data);
+	url = 'http://localhost:8080/pureQuadroo/quadrooServer/$DWord';
+	deleteQWord(url,data);
+}
+  
+
+function updateQWord(curl,cdata, data1) {
+	    // Create our XMLHttpRequest object
+	    var hr = new XMLHttpRequest();
+	   
+	    var url = curl+"?quadroodata={W:"+cdata+",nW:"+data1+"}" ;
+	 alert ("data before"+ cdata +"url:"+url); 
+	 //   var uurl = '"'+url+'"';
+	hr.open("GET",url ,false);
+	hr.send(null);
+	var docr = hr.responseText;
+	alert("Cool Java res:"+docr);
+	//var xmlDoc = $.parseXML( docr );
+//alert('XML:'+xmlDoc);
+//var myArray = getXMLToArray(xmlDoc);
+
+//alert(myArray['Qreply']['reply']);
+//$("#reply").html("Reply:"+myArray['Qreply']['reply']);
+$("#reply").html("Reply:"+docr);
+	   }
+	   
+
+function deleteQWord(curl,cdata) {
+	    // Create our XMLHttpRequest object
+	    var hr = new XMLHttpRequest();
+	   
+	    var url = curl+"?quadroodata={W:"+cdata+"}" ;
+	 alert ("data before"+ cdata +"url:"+url); 
+	 //   var uurl = '"'+url+'"';
+	hr.open("GET",url ,false);
+	hr.send(null);
+	var docr = hr.responseText;
+	alert("Cool Java res:"+docr);
+	//var xmlDoc = $.parseXML( docr );
+//alert('XML:'+xmlDoc);
+//var myArray = getXMLToArray(xmlDoc);
+
+//alert(myArray['Qreply']['reply']);
+//$("#reply").html("Reply:"+myArray['Qreply']['reply']);
+$("#reply").html("Reply:"+docr);
+	   }
+	    
+function addQWord(curl,cdata) {
+	    // Create our XMLHttpRequest object
+	    var hr = new XMLHttpRequest();
+	   
+	    var url = curl+"?quadroodata={W:"+cdata+"}" ;
+	 alert ("data before"+ cdata +"url:"+url); 
+	 //   var uurl = '"'+url+'"';
+	hr.open("GET",url ,false);
+	hr.send(null);
+	var docr = hr.responseText;
+	alert("Cool Java res:"+docr);
+	//var xmlDoc = $.parseXML( docr );
+//alert('XML:'+xmlDoc);
+//var myArray = getXMLToArray(xmlDoc);
+
+//alert(myArray['Qreply']['reply']);
+//$("#reply").html("Reply:"+myArray['Qreply']['reply']);
+$("#reply").html("Reply:"+docr);
+	   }
+function doListWord(var1){
+	
+	 
+	var data = 'dummy';
+
+	 url = 'http://localhost:8080/pureQuadroo/quadrooserver/$LSAWords';
+	//alert("new version");
+	 
+	 ListWord(url,data,var1);
+	  }
+	
+	  
+	function ListWord(curl,cdata,var1) {
+		
+			alert(var1);				 
+		    // Create our XMLHttpRequest object
+		    var hr = new XMLHttpRequest();
+		   
+		
+		   var url = curl+"?quadroodata={W:"+cdata+"}" ; 
+		   
+		   
+		
+		hr.open("GET",url ,false);
+		
+		//finaly we send and we do it in sync
+		hr.send(null);
+		
+		var docr = hr.responseText;
+		//alert("Cool Java res:"+docr.indexof("reply"));
+		var jsonstr='{"name":"George", "age":29, "friends":["John", "Sarah", "Albert"]}'
+	var george=JSON.parse(jsonstr) //convert JSON string into object
+	//alert(george.age) //alerts 29
+	 	var jsobjs =("'"+ docr+ "'");
+		var jso = JSON.parse(docr);
+	 	//var json = JSON.stringify(eval("(" + str + ")"));
+	 	var js2 = jso.reply;
+	 	 var js2o = JSON.stringify(js2);
+	 	var js3 = JSON.parse(js2o);
+	 //	alert  ("js3"+JSON.stringify(js3));
+	   var js2o = JSON.stringify(js3);
+	   var js2oo = JSON.parse(js2o);
+	  var js3o  = js2oo.result;
+	//  alert  ("js3o 1st"+JSON.stringify(js3o[1]));
+	  var  js3os = JSON.stringify(js3o);
+	 // alert  ("js3os"+js3os);
+	//  js3os.replace ("[", "{");
+	//  js3os.replace ("]", "}");
+	// var  jsa[] = js3os ;
+	//  alert ("jsa 1st:" + jsa[1]);
+	var nm = '';
+	if (var1 == '#updreplylist'){nm = 'uwords';}
+	else if(var1 == '#replylist'){nm = 'words';}
+	else if(var1 == '#delreplylist'){nm = 'dwords';}
+
+
+	alert (nm);
+
+
+
+	  var jslhtm= "<p>Word List </>  ";
+	                 var re = '{"FirstName":"John","LastName":"Doe","Email":"johndoe@johndoe.com","Phone":"123 dead drive"}';
+	              //  var result = $.parseJSON(js3os);
+	               $.each(js3o, function(k, v) {
+	                	
+	                    //display the key and value pair
+	                   //  alert(k + ' is v ' + v);
+	                    var sv = JSON.stringify(v) ;
+	                    var svj = JSON.parse(sv);
+	                    var nn = svj.name;
+	                    var qt ='/"';
+	                    var inn = '<input type="radio" name="'+nm+'" value="'+nn+'">'+ nn + '</input>';
+	                   // alert("inn:" + inn);                 
+	                    
+	                   //  jslhtm = jslhtm+"<li>"+ nn + "</li>";
+	                   jslhtm = jslhtm+ inn +" "  ;
+	                    // alert(k + ' name ' +JSON.stringify(nn));
+	                 });
+		
+    	$(var1).html(jslhtm);
+	
+    	
+    	//span id="wsel"
+    	$("input[name='words']").change(function(){
+    		$("#wsel").html($(this).val());
+            //alert($(this).val());
+        });
+        
+         $("input[name='uwords']").change(function(){
+    		$("#wsel").html($(this).val());
+            //alert($(this).val());
+        });
+
+    	$("input[name='dwords']").change(function(){
+    		$("#wsel").html($(this).val());
+            //alert($(this).val());
+        });    	
+	
+		   }	   
+   
+</script>
+ 
+</body>
+</html>

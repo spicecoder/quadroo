@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>In Mood</title>
+		<link rel="stylesheet" href="themes/aqua.min.css" />
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile.structure-1.3.2.min.css" />
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+		<script src="js/AppFlow.js"></script>
+	</head>
+<body>
+    <div data-role="page">
+ 
+        <div data-role="header">
+            <h1>Welcome To : Now I am in... </h1>
+             
+        </div><!-- /header -->
+ 
+        <div data-role="content">
+            
+            <h2>Your Current Moods</h2>
+            <div data-role="listview" data-inset="true" data-filter="true" class="mlist">
+	 
+	 
+	</div>
+			<a href="index.html" data-inline="true" data-role="button" data-inline="true">Log Off</a>
+		//	<a href="Make.html" data-inline="true" data-role="button" data-inline="true">Make</a>
+           <button     onclick="loadMake();"   >Create a Mood</button>
+
+
+        </div><!-- /content -->
+ 
+        <div data-role="footer">
+            <h4>...my Moods</h4>
+        </div><!-- /footer -->
+ 
+    </div><!-- /page -->
+</body>
+<script>
+ $(document).ready(function() {
+ //load mood list
+ alert("populating");
+ populateList();      
+ $('.buttonmake').click(function() {
+           
+           var S = $(this).attr("value")
+            alert("setting :" + S);
+            var data = " ";;
+	//Set S with the mood  
+	    // Create our XMLHttpRequest object
+	    var hr = new XMLHttpRequest();
+	   
+	    var url =  appurl +"SetS?UIdata={S:'"+S+"'}"
+	alert ("data before"+ data +"url:"+url); 
+	    var uurl = '"'+url+'"';
+	hr.open("GET",url ,false);
+		hr.send(null);
+    var docr = hr.responseText;
+   
+    var jso = JSON.parse(docr);
+     
+    var js2 = jso.replystatus;
+    
+            addTrail();
+        })
+ 
+   });
+function populateList() {
+ // Create our XMLHttpRequest object
+    var hr = new XMLHttpRequest();
+  var   curl =  appurl +'QuickListMoods';
+     var cdata ="{W:'Dummy'}";
+  var url = curl + "?UIdata=" + cdata;
+    alert("data before" +  "url:" + url);
+    //   var uurl = '"'+url+'"';
+    hr.open("GET", url, false);
+    hr.send(null);
+    var docr = hr.responseText;
+   alert("Reply responsetext:" + docr);
+    var jso = JSON.parse(docr);
+      
+    var js2 = jso.replystatus;
+    var repArray = jso.WA;
+    var moodArray = repArray[0];
+    alert ("moodArray:" + moodArray );
+    for (var j =0;j < moodArray.length; j++)
+         {
+         //var moodocur =( moodArray[j]);
+         $(".mlist").append("<div><button class='buttonmake' value= " +moodArray[j].mood + " name= 'xx'  >" +moodArray[j].mood+ "</button></div>");
+        
+          alert ("mood j:html" + moodArray[j].mood +$(".mlist").html());
+     }
+      
+    
+      
+  //  var jsw1 = JSON.parse(c);
+  //  alert("Reply jsw1:" + jsw1  );
+   
+    
+    if (js2=='ok') {alert ("list ready");
+   
+ }    
+ }   
+function loadMake() {
+ // $("html").loadpage( "Make.html");
+   window.location = "Make.html";
+}
+function addTrail() {
+ alert("in add trail") ;
+    window.location = "MakeMoodTrail.html";
+//pageLoad("MakeMoodTrail.html","Go Lucky");
+}
+function pageLoad(pagename,S) {
+ alert("in pageload") ;
+ // Create our XMLHttpRequest object
+    var hr = new XMLHttpRequest();
+  var   curl = appurl + 'PullPage';
+     var cdata ="{W:'" + pagename + "',S:'" + S + "' }";
+  var url = curl + "?UIdata=" + cdata;
+    alert("data before" +  "url:" + url);
+    //   var uurl = '"'+url+'"';
+    hr.open("GET", url, false);
+    hr.send(null);
+    var docr = hr.responseText;
+   alert("Reply responsetext:" + docr);
+    var jso = JSON.parse(docr);
+      
+    var js2 = jso.replystatus;
+    var repArray = jso.WA;
+    var pagehtml = repArray[0];
+    alert ("pagereceived" +pagehtml);
+    $("html").html(pagehtml);
+    $("#moodname").html(S);
+    
+   
+     
+ }   
+
+
+
+</script>
+
+</html>

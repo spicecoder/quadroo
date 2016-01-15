@@ -1,0 +1,171 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <style type="text/css">
+        
+        #main{
+            
+            border: 1px solid black;
+            width: 600px;
+            height: 700px;
+            position:relative;
+            margin: auto;
+        }
+        
+        .bet_time_right {
+        position:absolute;
+        bottom:0;
+        right:0;
+        margin-right: 100px;
+        }
+        
+        .bet_time_left {
+        position:absolute;
+        bottom:0;
+        left:0;
+        margin-left: 100px;
+        }
+        
+        
+        .bet_time_left button{
+        width: 100px;
+        height: 40px;
+        }
+        
+        
+        .bet_time_right button{
+        width: 100px;
+        height: 40px;
+        }
+    </style>
+
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+
+    <script type="text/javascript">
+    var sceneSave ={ };
+    var sceneWords = new Array();
+    $( document ).ready(function() {
+        $("#mybutton").click(function() {
+		$.each($("div[scene='statetosave']").find("[qW]"), function( k, v ) {
+			var aWord={};
+			aWord.qW= $(this).attr("qW");
+			aWord.qV= $(this).attr("qV");
+		// k is the index and v is the value , -all u need is make a json object out of  all of these
+		 sceneWords.push(aWord);
+ 		 $("#div1").append(k+  ":"+$(this).attr("qV")+"<br\>" + "for" + $(this).attr("qW"));
+		 //to reinstate all you need is reset $(this).val = saved value ,you can use the k as the index for the value to do that
+		 sceneSave.scene = "statetosave";
+		 sceneSave.val   = sceneWords;
+  
+});
+		
+		alert("SceneSave:" +sceneSave.scene+":"+ sceneSave.val[0].qW +":" +  sceneSave.val[0].qV );      ;  
+				 
+     
+    } 
+        
+        $("#mydown").click(function() {
+        	var SceneSave ; //retrieved value
+        	var valArray = new Array();
+        	valArray = SceneSave.val;
+        	var ll = valArray.length;
+        	if (ll > 0){
+        		for(var i=0;i<ll;i++) {
+        			var valobj = valArray[i];
+        			$("div[scene='statetosave'] div[qw=valobj.qW] ").attr("qV",valobj.qV);
+        			
+        			
+        		}
+        		
+        		
+        	}
+    		$.each($("div[scene='statetosave'] ").find("[qW]"), function( k, v ) {
+    			var aWord={};
+    			aWord.qW= $(this).attr("qW");
+    			aWord.qV= $(this).attr("qV");
+    		// k is the index and v is the value , -all u need is make a json object out of  all of these
+    		 sceneWords.push(aWord);
+     		 $("#div1").append(k+  ":"+$(this).attr("qV")+"<br\>" + "for" + $(this).attr("qW"));
+    		 //to reinstate all you need is reset $(this).val = saved value ,you can use the k as the index for the value to do that
+    		 sceneSave.scene = "statetosave";
+    		 sceneSave.val   = sceneWords;
+      
+    });
+    		
+    		alert("SceneSave:" +sceneSave.scene+":"+ sceneSave.val[0].qW +":" +  sceneSave.val[0].qV );      ;  
+    				 
+         
+        }      
+        
+        
+        
+        )} );
+ 
+
+    </script>
+</head>
+
+<body>
+  <div id="main" scene="statetosave">
+      <a href="examples1.html">Example 2</a>
+      <a href="examples2.html">Example 3</a>
+      <a href="examples3.html">Visit W3Schools</a>
+    <H1>Booking Illustration</H1>
+    <H2>Hotel</H2>
+    <p> Pronab puts Contents </p>
+    
+    <p>
+<FORM id="myform" name="myform">
+<table border=0 cellspacing=0 cellpadding=2>
+<tr>
+<td colspan=2>
+<font size=2 face="arial" color="#000000">
+<INPUT type="text" name="user" value="Your Username" qW="uname" qV="pp" > :Your Username<BR>
+<INPUT type="text" name="email" value="Your E-mail"  qW="email" qv="hg@"> :Your E-mail
+</font>
+</td>
+</tr>
+<tr>
+<td>
+<font size=1 face="arial" color="#000000">
+<INPUT name="subscribe" type="radio" value="yes" qW="subscribe" qV="subscribed"> subscribe<BR>
+<INPUT name="subscribe" type="radio" value="no"> un-subscribe<BR>
+</font>
+</td>
+<td>
+<SELECT name="choices" qW="choices" qV="merc" >
+  <option value="volvo">Volvo</option>
+  <option value="saab">Saab</option>
+  <option value="mercedes">Mercedes</option>
+  <option value="audi">Audi</option></SELECT>
+</td>
+</tr>
+<tr>
+<td colspan=2>
+<font size=1 face="arial" color="#000000">
+<INPUT type="checkbox" name="emailashtml" value="email as html" qW="emailopt" qV="emailme"  >
+i can recive email as html<BR>
+<INPUT type="checkbox" name="receipt" value="recipt for this email">
+send me a recipt for this email<BR>
+</font>
+<TEXTAREA name="tarea" cols=20 rows=10  qW="textb" qV="">
+Hey !
+</TEXTAREA><br>
+<center>
+<INPUT name ="testBtn" id="mybutton" type="button" value="Save Session">
+</center>
+</td></tr></table>
+</FORM>
+<!-- ** END OF FORM ** -->
+
+  
+
+    </p>
+    <span class="bet_time_left"><button type="button" id="previous">Previous</button></span>
+    <span class="bet_time_right"><button type="button" id="next">Next</button></span>
+  </div>
+    <div id="div1" style="border: 1px solid black"></div>
+    
+</body>
+</html>

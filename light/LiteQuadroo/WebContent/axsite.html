@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="http://malsup.github.com/jquery.form.js"></script> 
+
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+    $("#div1").load("http://localhost:8080/quadrooServer/quadrooql/extractNS?quadroodata={W:a.b.c.aword}",function(responseTxt,statusTxt,xhr){
+      if(statusTxt=="success")
+        alert("External content loaded successfully!");
+      if(statusTxt=="error")
+        alert("Error: "+xhr.status+": "+xhr.statusText);
+    });
+  });
+});
+
+function submitForm() {
+    $("#div1").load("http://localhost:8080/quadrooServer/quadrooql/extractNS?quadroodata={W:a.b.c.aword}",function(responseTxt,statusTxt,xhr){
+        if(statusTxt=="success")
+          alert("External content loaded successfully!");
+        if(statusTxt=="error")
+          alert("Error: "+xhr.status+": "+xhr.statusText);
+      });
+    }
+
+
+
+</script>
+</head>
+<body>
+
+<div id="div1"><h2>Let jQuery AJAX Change This Text</h2></div>
+<button>Get External Content</button>
+<p> next</p>p>
+<form id="ContactForm" onsubmit="return submitForm();">
+    Your Name: <input type="text" name="name" value="" /><br /> 
+    Your Email: <input type="text" name="email" value="" /><br /> 
+    Your Message:<br /> <textarea style="width: 200px; height: 100px;" name="message"></textarea> 
+    <br /><br /> 
+    <input type="button" onclick="submitForm()" name="submit" value="Submitb" /><br />
+    <div class="form_result"> </div>
+</form>
+</body>
+</html>
+

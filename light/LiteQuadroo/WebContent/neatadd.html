@@ -1,0 +1,111 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="web design, website development, web application development, print design, database development, ecommerce websites, search engine optimization, packaging design" />
+<meta name="description" content="Design Chemical, Bangkok provides web design, website development, web application development, print design, database development, ecommerce websites, search engine optimization &amp; packaging design." />
+<meta name="robots" content="all" />
+<title>jQuery Example - Create an add/remove select list - Design Chemical Bangkok</title>
+<link href="/css/style.css" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" href="http://www.designchemical.com/favicon.ico" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="/js/jquery.plugins.js"></script>
+<script type="text/javascript" src="/js/jquery.site.js"></script>
+<link rel="stylesheet" href="http://www.designchemical.com/css/dcsmt.css" type="text/css" media="screen" />
+<script type="text/javascript" src="http://www.designchemical.com/blog/wp-content/themes/dc2011/dcsmt/js/jquery.social.media.tabs.1.1.js"></script>
+<script type="text/javascript">
+$(window).load(function() {
+	
+	$('#social-tabs').dcSocialTabs({
+						widgets: 'fblike,twitter,fbrec,google,rss',
+						rssId: 'http://feeds.feedburner.com/DesignChemical',
+						twitterId: 'designchemical',
+						fblikeId: '157969574262873',
+						fbrecId: 'http://www.designchemical.com',
+						googleId: '111470071138275408587',
+						twitter: {
+							title: 'Twitter'
+						},
+						fblike: {
+							limit: 16
+						},
+						google: {
+							header: 0,
+							api_key: 'AIzaSyCsugGErGFtT5mGKH51DLqvZJTQx2ggypQ'
+						},
+						rss: {
+							title: 'Updates'
+						},
+						width: 260,
+						height: 380,
+						method: 'static',
+imagePath: 'http://www.designchemical.com/blog/wp-content/themes/dc2011/dcsmt/images/icons/'						
+					});
+});
+</script>  
+
+
+
+<script type="text/javascript">
+jQuery(function(){
+     $('#btn-add').click(function(){
+		$('#select-from option:selected').each( function() {
+			$('#select-to').append("<option value='"+$(this).val()+"'>"+$(this).text()+"</option>");
+			$(this).remove();
+		});
+	});
+	$('#btn-remove').click(function(){
+		$('#select-to option:selected').each( function() {
+			$('#select-from').append("<option value='"+$(this).val()+"'>"+$(this).text()+"</option>");
+			$(this).remove();
+		});
+	});
+});
+</script>
+  
+
+  
+  <div id="wrap-content">
+  
+  
+  
+    <div id="content">
+	  <div class="page wrap sidecol">
+	  <div class="col-main float-left">
+	    <h2 class="page-title">jQuery Demo: Add/Remove Select Lists</h2>
+		<div class="content-block">
+		  <div class="form-container">
+            <form method="post" name="form1" id="demo" action="">
+              <fieldset>
+                <div>
+                <select name="selectfrom" id="select-from" multiple size="5" class="multiple-select">
+                  <option value="1">Item 1</option>
+				  <option value="2">Item 2</option>
+				  <option value="3">Item 3</option>
+				  <option value="4">Item 4</option>
+                </select>
+              </div>
+			  <div>
+			    <a class="ovalbutton clear float-left" href="JavaScript:void(0);" id="btn-add"><span>Add &raquo;</span></a>
+				<a class="ovalbutton clear float-right" href="JavaScript:void(0);" id="btn-remove"><span>&laquo; Remove</span></a>
+			  </div>
+			  <div>
+                <select name="selectto" id="select-to" multiple size="5" class="multiple-select">
+				  <option value="5">Item 5</option>
+				  <option value="6">Item 6</option>
+				  <option value="7">Item 7</option>
+                </select>
+              </div>
+              </fieldset>
+            </form>
+          </div>
+		  <p><a href="/blog/index.php/jquery/create-add-remove-select-lists-using-jquery/">Return to blog post</a></p>
+		</div>
+	  </div>
+
+	</div>
+  </div>
+  <!-- End Content -->
+
+</div>

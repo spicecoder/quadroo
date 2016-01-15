@@ -1,0 +1,164 @@
+<!doctype html>
+ 
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>jQuadroo Interaction Template</title>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+    <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    
+    <script>
+    $(function() {
+ $("#flowaccord").accordion({
+      collapsible: true,
+      active: false
+});
+
+	  $( "#sceneaccord" ).accordion({
+      collapsible: true,
+      active: false
+});
+	   $( "#wordaccord" ).accordion({
+      collapsible: true,
+      active: false
+});
+ $( "#scenewordaccord" ).accordion({
+      collapsible: true,
+      active: false
+});
+$( "#flowsceneaccord" ).accordion({
+      collapsible: true,
+      active: false
+});
+        $( "#tabs" ).tabs();
+    });
+    </script>
+</head>
+<body>
+ 
+<div id="tabs">
+    <ul>
+        <li><a href="#flowTab">FLOWS <div align="center"><img src="image/flow.png" alt="Words image" width="55" height="42"></div>   </a></li>
+        <li><a href="#sceneTab">SCENES <div align="center"><img src="image/scene.png" alt="Words image" width="42" height="42"></div></a></li>
+        <li><a href="#wordTab">WORDS  <div align="center"><img src="image/word.png" alt="Words image" width="60" height="42"></div></a></li>
+		 <li><a href="#scenewordTab">SceneWORDS  <div align="center"><img src="image/sceneword.png" alt="SceneWords image" width="60" height="42"></div></a></li>
+		 <li><a href="#flowsceneTab">FlowSCENES  <div align="center"><img src="image/flowscene.png" alt="FlowScenes image" width="60" height="42"></div></a></li>
+		 
+
+
+   </ul>
+    <div id="flowTab">
+        <div id="flowaccord">
+    <h3>ADD Flows</h3>
+    <div>
+       Quadroo -ADD FLOWS
+    </div>
+    <h3>UPDATE Flows</h3>
+    <div>
+        <p>
+        Quadroo - Update FLOWS
+        </p>
+    </div>
+    <h3>DELETE Flows</h3>
+    <div>
+        <p>
+        Quadroo - Delete FLOWS
+        </p>
+        
+    </div>
+    </div>
+	</div>
+
+    <div id="sceneTab">
+         <div id="sceneaccord">
+    <h3>ADD Scene</h3>
+    <div>
+       Quadroo -ADD SCENES
+    </div>
+    <h3>UPDATE Scene</h3>
+    <div>
+        <p>
+        Quadroo - Update SCENES
+        </p>
+    </div>
+    <h3>DELETE Scene</h3>
+    <div>
+        <p>
+        Quadroo - Delete SCENES
+        </p>
+        
+    </div>
+    </div>   </div>
+    <div id="wordTab">
+       <div id="wordaccord">
+    <h3>ADD Word</h3>
+    <div>
+       Quadroo -ADD WORDS
+       
+    </div>
+    <h3>UPDATE Word</h3>
+    <div>
+        <p>
+        Quadroo - Update WORDS
+        </p>
+    </div>
+    <h3>DELETE Word</h3>
+    <div>
+        <p>
+        Quadroo - Delete WORDS
+        </p>
+        
+    </div>
+    
+</div> 
+  </div>
+   <div id="scenewordTab">
+       <div id="scenewordaccord">
+    <h3>ADD Words in Scene</h3>
+    <div>
+       Quadroo Scene -ADD WORDS in Scene
+    </div>
+    <h3>UPDATE Words in Scene</h3>
+    <div>
+        <p>
+        Quadroo - Update WORDS in Scene
+        </p>
+    </div>
+    <h3>DELETE words in Scene</h3>
+    <div>
+        <p>
+        Quadroo - Delete WORDS in Scene
+        </p>
+        
+    </div>
+    
+</div> 
+  </div>
+   <div id="flowsceneTab">
+       <div id="flowsceneaccord">
+    <h3>ADD Flow Scenes</h3>
+    <div>
+       Quadroo : Flow: -ADD Scenes
+    </div>
+    <h3>UPDATE Flow Scenes</h3>
+    <div>
+        <p>
+        Quadroo : Flow: - Update Scenes
+        </p>
+    </div>
+    <h3>DELETE Flow Scenes</h3>
+    <div>
+        <p>
+        Quadroo Flow - Delete Scenes
+        </p>
+        
+    </div>
+    
+</div> 
+  </div>
+</div>
+ 
+ 
+</body>
+</html>

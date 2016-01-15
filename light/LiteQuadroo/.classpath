@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="C:/Program Files/Java/jdk1.7.0_71/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="D:/disk_C/$MyALab/cp/java-json.jar"/>
+	<classpathentry kind="lib" path="D:/disk_C/$MyALab/cp/mongo-2.9.1.jar"/>
+	<classpathentry kind="lib" path="D:/disk_C/$MyALab/cp/mysql-connector-java-5.1.22-bin.jar"/>
+	<classpathentry kind="lib" path="D:/disk_C/$MyALab/cp/servlet-api.jar"/>
+	<classpathentry kind="lib" path="D:/disk_C/$MyALab/cp/sqlite-jdbc-3.7.2.jar"/>
+	<classpathentry kind="lib" path="D:/StartOver/javaLibs/rt.jar"/>
+	<classpathentry kind="lib" path="D:/disk_C/$MyALab/cp/commons-codec-1.10-bin/commons-codec-1.10/commons-codec-1.10.jar"/>
+	<classpathentry kind="lib" path="D:/disk_C/$MyALab/cp/apache-httpcomponents-httpcore.jar/apache-httpcomponents-httpcore.jar"/>
+	<classpathentry kind="lib" path="D:/disk_C/$MyALab/cp/httpclient-4.0.3.jar/httpclient-4.0.3.jar"/>
+	<classpathentry kind="lib" path="D:/StartOver/JavaVerbServer/Old_Qadrroo/CP/freemarker-2.3.14.jar"/>
+	<classpathentry kind="lib" path="D:/StartOver/JavaVerbServer/Old_Qadrroo/CP/xstream-1.4.3.jar"/>
+	<classpathentry kind="lib" path="D:/StartOveQnr/StartOver/CP/apache-xml-xerces.jar/apache-xml-xerces.jar"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>
