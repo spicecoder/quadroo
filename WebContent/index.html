@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+ <link href="css/jquery-ui.css" rel="stylesheet" type="text/css"/>
+    <script src="js/jquery-1.8.3.js"></script>
+    <script src="js/jquery-ui.js"></script>
+<script>
+function doListWord(){
+//var data = $('#wt').val() ;
+var data = 'dummy';
+
+ url = 'http://localhost:8080/pureQuadroo/quadrooServer/$LWords';
+//alert("new version");
+ 
+ ListWord(url,data);
+  }
+function  buildList(docr) {
+	//alert ("js in:"+docr);
+	var jsonobj = JSON.parse(docr); 
+	//alert ("jsobj:"+jsonobj); 
+return  docr;
+
+
+ } 
+  
+function ListWord(curl,cdata) {
+	
+	 
+	    // Create our XMLHttpRequest object
+	    var hr = new XMLHttpRequest();
+	   
+	
+	   var url = curl+"?quadroodata={W:"+cdata+"}" ; 
+	   
+	   
+	
+	hr.open("GET",url ,false);
+	
+	//finaly we send and we do it in sync
+	hr.send(null);
+	
+	var docr = hr.responseText;
+	//alert("Cool Java res:"+docr.indexof("reply"));
+	var jsonstr='{"name":"George", "age":29, "friends":["John", "Sarah", "Albert"]}'
+
+ 	var jsobjs =("'"+ docr+ "'");
+	var jso = JSON.parse(docr);
+ 	//var json = JSON.stringify(eval("(" + str + ")"));
+ 	var js2 = jso.reply;
+ 	 var js2o = JSON.stringify(js2);
+ 	var js3 = JSON.parse(js2o);
+ 	//alert  ("js3"+JSON.stringify(js3));
+   var js2o = JSON.stringify(js3);
+   var js2oo = JSON.parse(js2o);
+  var js3o  = js2oo.result;
+ // alert  ("js3o 1st"+JSON.stringify(js3o[1]));
+  var  js3os = JSON.stringify(js3o);
+ // alert  ("js3os"+js3os);
+//  js3os.replace ("[", "{");
+//  js3os.replace ("]", "}");
+// var  jsa[] = js3os ;
+//  alert ("jsa 1st:" + jsa[1]);
+  var jslhtm= "<p>Word List </>  <ul>";
+                 var re = '{"FirstName":"John","LastName":"Doe","Email":"johndoe@johndoe.com","Phone":"123 dead drive"}';
+              //  var result = $.parseJSON(js3os);
+               $.each(js3o, function(k, v) {
+                	
+                    //display the key and value pair
+                   //  alert(k + ' is v ' + v);
+                    var sv = JSON.stringify(v) ;
+                    var svj = JSON.parse(sv);
+                    var nn = svj.name;
+                    jslhtm = jslhtm+"<li>"+ nn + "</li>";
+                    // alert(k + ' name ' +JSON.stringify(nn));
+                 });
+               jslhtm = jslhtm + "</ul>";
+	//alert("replt:"+ (js2.result);
+	//var listhtm = buildList(docr);
+$("#reply").html(jslhtm);
+	   }
+</script>
+	
+	 
+  
+  </head>
+<body style="background-color:cream;" onload="doListWord();" >  
+  <h1> Quadroo Template Library </h1>
+  <hr>
+  <h2> LISTING DICTIONARY  WORDS  </h2>
+  
+  
+  
+
+
+<div id="reply"> </div>
+  </html>

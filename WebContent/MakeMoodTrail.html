@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>In Mood</title>
+		<link rel="stylesheet" href="themes/aqua.min.css" />
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile.structure-1.3.2.min.css" />
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+		<script src="js/AppFlow.js"></script>
+	</head>
+<body>
+    <div data-role="page">
+ 
+        <div data-role="header">
+            <h1>Welcome To : Now I am in... </h1>
+             
+        </div><!-- /header -->
+ 
+        <div data-role="content">
+        <h2 id="moodname" >happy_new_Year_dd_lmm</h2>
+        <div id ="moodtrail" >
+        
+        </div>
+        <div id="noteTake">
+        <span id="notetag" lvl="words"> 
+       <textarea style="width: 160px; height: 45px;"   id="nt"  > Note Tag </textarea>
+       </span> 
+       <span id="moodnote" lvl="words"> 
+       <textarea style="width: 160px; height: 45px;"   id="mn"  > M o d d Note </textarea>
+       </span> 
+ 
+        </div>
+			<a href="index.html" data-inline="true" data-role="button" data-inline="true">Log Off</a>
+           <a href="index.html" data-role="button" data-inline="true" data-theme="a">Take a Photo</a>
+        <button  data-inline="true" data-role="button" data-theme="a" data-inline="true"onclick="addNote();"  >Make a Note</button>
+          
+
+        </div><!-- /content -->
+ 
+        <div data-role="footer">
+            <h4>...my Moods</h4>
+        </div><!-- /footer -->
+ 
+    </div><!-- /page -->
+    
+   <script>
+   function populateTrail(){
+   var   S=$("#moodname").html();
+   var WA = $('#mn').val() ;
+   var 	W   =$('#nt').val();
+	//W will have the tag, S the mood and WA[0] the note 
+	    // Create our XMLHttpRequest object
+	    var hr = new XMLHttpRequest();
+	   alert ("app url"  + appurl);
+	    var url = appurl + "QuickListTrail?UIdata={W:'"+ W+ "',S="+S+",WA:'["+WA+"]'}" ;
+	alert ("data before url:"+url); 
+	   // var uurl = '"'+url+'"';
+	hr.open("GET",url ,false);
+	hr.send();
+	var docr = hr.responseText;
+	alert ('docr:' + docr);
+	 var jso = JSON.parse(docr);
+	 var vW = jso.WA;
+	// var jvw = JSON.parse(vW);
+  	 alert("response:" + vW[0][0].content +":"+vW[0][1].content);
+  	 for (var jj =0;jj<vW[0].length;jj++){
+  	 $("#moodtrail").append("<div>"+vW[0][jj].entryname+ ":" +vW[0][jj].content + " </div>"); }
+//var	va = new Array();
+ //var  va = jso.WA;
+//	 for (var jj =0; jj < va.length;jj++) {alert ("with:"+ jj + va[jj]); }
+	  } 
+     
+   
+     
+   function addNote() {
+   var   S=$("#moodname").html();
+   var WA = $('#mn').val() ;
+   var 	W   =$('#nt').val();
+	//W will have the tag, S the mood and WA[0] the note 
+	    // Create our XMLHttpRequest object
+	    var hr = new XMLHttpRequest();
+	   
+	    var url = appurl + "QuickNote?UIdata={W:'"+ W+ "',S="+S+",WA:'["+WA+"]'}" ;
+	alert ("data before url:"+url); 
+	   // var uurl = '"'+url+'"';
+	hr.open("GET",url ,false);
+	hr.send();
+	var docr = hr.responseText;
+	 var jso = JSON.parse(docr);
+     
+    var js2 = jso.replystatus;
+    alert("js2" + js2);
+	 
+	   }
+   $(document).ready(function() {
+ 
+ alert("loading maketrail" + appurl);
+  
+ 
+ //get S value
+ var data = " ";;
+	//returned S the mood  
+	    // Create our XMLHttpRequest object
+	    var hr = new XMLHttpRequest();
+	   
+	    var url =  appurl +"GetS?UIdata={W:"+"dummy"+"}"
+	alert ("data before"+ data +"url:"+url); 
+	    var uurl = '"'+url+'"';
+	hr.open("GET",url ,false);
+		hr.send(null);
+    var docr = hr.responseText;
+   
+    var jso = JSON.parse(docr);
+     
+    var js2 = jso.replystatus;
+    var S = jso.S;
+    alert ("s received" + S );
+    $("#moodname").html(S);
+ //next we populate the trail
+ alert("trail pop");
+ populateTrail();
+         });
+ 
+  
+   
+   </script> 
+    
+</body>
+</html>

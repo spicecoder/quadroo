@@ -1,0 +1,86 @@
+
+<!doctype html>
+<html>
+<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>In Mood</title>
+		<link rel="stylesheet" href="themes/aqua.min.css" />
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile.structure-1.3.2.min.css" />
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+			<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+			<script src="js/AppFlow.js"></script>
+	</head>
+<body>
+    <div data-role="page">
+ 
+        <div data-role="header">
+            <h1>Now I Am In  </h1>
+        </div><!-- /header -->
+ 
+        <div data-role="content">
+            
+            <h2>Please Log in</h2>
+            <div data-role="fieldcontain">
+    <label for="uid">User ID:</label>
+    <input type="text" name="uid" id="uid" value=""  />
+    <label for="pwd">Password:</label>
+    <input type="text" name="pwd" id="pwd" value=""  />
+</div>	
+			
+			<button data-inline="true" data-role="button" data-inline="true">Register</button>
+           <button  data-role="button" data-inline="true" data-theme="a" onclick="doLogin();" >Submit</button>
+             <button  data-role="button" data-inline="true" data-theme="a" onclick="doCreate();" >Create</button>
+        </div><!-- /content -->
+ 
+        <div data-role="footer">
+            <h4>...my Moods</h4>
+        </div><!-- /footer -->
+ 
+    </div><!-- /page -->
+</body>
+<script>
+
+    
+function doLogin() {
+    var u = $('#uid').val();
+    var p = $('#pwd').val();
+  var  data = "{U:'" +u + "',pwd:'"+p+"'}";
+   var  url =appurl +  'LogIn';
+    invokeLogin(url, data);
+    
+}
+
+
+
+function invokeLogin(curl, cdata) {
+
+
+    // Create our XMLHttpRequest object
+    var hr = new XMLHttpRequest();
+
+    var url = curl + "?UIdata=" + cdata;
+    alert("data before" +  "url:" + url);
+    //   var uurl = '"'+url+'"';
+    hr.open("GET", url, false);
+    hr.send(null);
+    var docr = hr.responseText;
+   
+    var jso = JSON.parse(docr);
+     
+    var js2 = jso.replyint;
+   
+   
+    
+    alert("Reply:" + js2);
+    if (js2==0) {alert ("loading");
+     window.location = "Welcome.html";  
+ //   $("html").loadpage( "Welcome.html"); 
+//    $("html").html('<object data="Welcome.html">');
+    }
+    
+     }
+ 
+
+</script>	
+</html>

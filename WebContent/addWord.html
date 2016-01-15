@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+ <link href="css/jquery-ui.css" rel="stylesheet" type="text/css"/>
+    <script src="js/jquery-1.8.3.js"></script>
+    <script src="js/jquery-ui.js"></script>
+	
+	 
+  
+  </head>
+<body style="background-color:cream;" >  
+  <h1> Quadroo Template Library </h1>
+  <hr>
+  <h2> Function AddW  </h2>
+  
+  
+  
+<div > 
+<span id="orangechunks" lvl="words"> <textarea style="width: 160px; height: 45px;"   id="wt"  >Input </textarea></span> 
+</div>
+<div >
+<script>
+function doAddWord(){var data = $('#wt').val() ;
+
+ url = 'quadrooServer/$AWord';
+ addQWord(url,data);
+  }
+function getXMLToArray(xmlDoc){
+    var thisArray = new Array();
+    //Check XML doc
+    if($(xmlDoc).children().length > 0){
+    //Foreach Node found
+    $(xmlDoc).children().each(function(){    
+        if($(xmlDoc).find(this.nodeName).children().length > 0){
+        //If it has children recursively get the inner array
+        var NextNode = $(xmlDoc).find(this.nodeName);
+        thisArray[this.nodeName] = getXMLToArray(NextNode);
+        } else {
+        //If not then store the next value to the current array
+        thisArray[this.nodeName] = $(xmlDoc).find(this.nodeName).text();
+        }
+    });
+    }
+    return thisArray;
+}  
+  
+function addQWord(curl,cdata) {
+	
+	 
+	    // Create our XMLHttpRequest object
+	    var hr = new XMLHttpRequest();
+	   
+	    var url = curl+"?quadroodata={W:"+cdata+"}" ;
+	 alert ("data before"+ cdata +"url:"+url); 
+	 //   var uurl = '"'+url+'"';
+	hr.open("GET",url ,false);
+	hr.send(null);
+	var docr = hr.responseText;
+	alert("Cool Java res:"+docr);
+	//var xmlDoc = $.parseXML( docr );
+//alert('XML:'+xmlDoc);
+//var myArray = getXMLToArray(xmlDoc);
+
+//alert(myArray['Qreply']['reply']);
+//$("#reply").html("Reply:"+myArray['Qreply']['reply']);
+$("#reply").html("Reply:"+docr);
+	   }
+</script>
+<button onclick="doAddWord();"> ADD: <img src="images/concepts.png"> </button>
+ 
+<div id="reply"> </div>
+  </html>

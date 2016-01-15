@@ -1,0 +1,231 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>jQuadroo Interaction Template</title>
+<link rel="stylesheet"
+	href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+<script type="text/javascript" src="js/JQuadrooT.js"></script>
+<script type="text/javascript" src="js/qNavigate.js"></script>
+</head>
+<body>
+	<div id="current">
+		<h1>Current Selections</h1>
+		Word:<span id="wsel"> </span> ;Scene:<span id="ssel"> </span> ; Flow:<span
+			id="fsel"> </span> ;</span>
+
+	</div>
+	<div id="tabs">
+		<ul>
+			<li><a href="#flowTab">FLOWS
+					<div align="center">
+						<img src="image/flow.png" alt="Words image" width="55" height="42">
+					</div>
+			</a></li>
+			<li><a href="#sceneTab">SCENES
+					<div align="center">
+						<img src="image/scene.png" alt="Words image" width="42"
+							height="42">
+					</div>
+			</a></li>
+			<li><a href="#wordTab">WORDS
+					<div align="center">
+						<img src="image/word.png" alt="Words image" width="60" height="42">
+					</div>
+			</a></li>
+			<li><a href="#scenewordTab">SceneWORDS
+					<div align="center">
+						<img src="image/sceneword.png" alt="SceneWords image" width="60"
+							height="42">
+					</div>
+			</a></li>
+			<li><a href="#flowsceneTab">FlowSCENES
+					<div align="center">
+						<img src="image/flowscene.png" alt="FlowScenes image" width="60"
+							height="42">
+					</div>
+			</a></li>
+			<li><a href="#flowsceneProtTab">Prototype
+					<div align="center">
+						<img src="image/flowsceneprot.png"
+							alt="FlowScenes prototype image" width="60" height="42">
+					</div>
+			</a></li>
+           <li><a href="#SceneRollTab">SceneRoll
+					<div align="center">
+						<img src="image/flowsceneprot.png"
+							alt="FlowScenes prototype image" width="60" height="42">
+					</div>
+			</a></li>
+
+
+		</ul>
+		<div id="flowTab">
+			<div id="flowaccord">
+				<h3>ADD Flows</h3>
+				<div>Quadroo -ADD FLOWS</div>
+				<h3>UPDATE Flows</h3>
+				<div>
+					<p>Quadroo - Update FLOWS</p>
+				</div>
+				<h3>DELETE Flows</h3>
+				<div>
+					<p>Quadroo - Delete FLOWS</p>
+
+				</div>
+
+			</div>
+		</div>
+
+		<div id="sceneTab">
+			<div id="sceneaccord">
+				<h3>ADD Scene</h3>
+				<div>Quadroo -ADD SCENES</div>
+				<h3>UPDATE Scene</h3>
+				<div>
+					<p>Quadroo - Update SCENES</p>
+				</div>
+				<h3>DELETE Scene</h3>
+				<div>
+					<p>Quadroo - Delete SCENES</p>
+
+				</div>
+			</div>
+		</div>
+		<div id="wordTab">
+			<div id="wordaccord">
+				<h3>ADD Word</h3>
+				<div>
+					Quadroo -ADD WORDS
+					<div>
+						<span id="wordtoadd" > <textarea style="width: 160px; height: 45px;" id="wt">Input </textarea></span>
+					</div>
+					<div>
+
+						<button onclick="doAddWord();">
+							ADD: <img src="images/concepts.png">
+						</button>
+					</div>
+
+					<div id="reply"></div>
+				</div>
+
+				<h3>UPDATE Word</h3>
+				<div>
+					  
+      <div > 
+<span id="orangechunks" lvl="words"> <textarea style="width: 160px; height: 45px;"   id="uwt"  >Input </textarea></span> 
+</div>
+<div >
+
+<button onclick="doUpdateWord();"> Update: <img src="images/concepts.png"> </button>
+<div id="replyuw"></div>
+</div>
+				</div>
+				<h3>DELETE Word</h3>
+				<div>
+				 <div > 
+           <button onclick="doDeleteWord();"> Delete: <img src="images/concepts.png"> </button>   
+            <div id="replydw"></div>
+             </div> 
+                
+
+				</div>
+				<h3>List Word</h3>
+				<div>
+					<p>Quadroo - List WORDS</p>
+					<button onclick="doListWord();">
+						ListWords <img src="images/concepts.png">
+					</button>
+					<div></div>
+					<div id="replylist"></div>
+
+
+
+				</div>
+
+			</div>
+		</div>
+		<div id="scenewordTab">
+			<div id="scenewordaccord">
+				<h3>ADD Words in Scene</h3>
+				<div>Quadroo Scene -ADD WORDS in Scene</div>
+				<h3>UPDATE Words in Scene</h3>
+				<div>
+					<p>Quadroo - Update WORDS in Scene</p>
+				</div>
+				<h3>DELETE words in Scene</h3>
+				<div>
+					<p>Quadroo - Delete WORDS in Scene</p>
+
+				</div>
+
+			</div>
+		</div>
+		<div id="flowsceneTab">
+			<div id="flowsceneaccord">
+				<h3>ADD Flow Scenes</h3>
+				<div>Quadroo : Flow: -ADD Scenes</div>
+				<h3>UPDATE Flow Scenes</h3>
+				<div>
+					<p>Quadroo : Flow: - Update Scenes</p>
+				</div>
+				<h3>DELETE Flow Scenes</h3>
+				<div>
+					<p>Quadroo Flow - Delete Scenes</p>
+
+				</div>
+
+			</div>
+		</div>
+		<div id="flowsceneProtTab">
+			<div id="flowsceneprotaccord">
+				<h3>Flow:-Scenes PreSets</h3>
+				<div>//verb required i.find all scenes in flow //iifind words
+					in flow [ common words:words from the scene in more than one scene
+					in flow] //ii. verbs in scene common words //read preset value,
+					postset values; // Quadroo : Flow:-Scenes PreSets ; pre and post
+					set are indicated by measure of the word and may br{
+					{pre:"T"},{pre,""F"},{post,"T"},{post,"F"}..only max one entry of
+					pre and post. // Flow Chosen:xxxxxxx //find flow words dynamicaly-
+					which words are common to two or more scenes. //find which wors ae
+					Presets: words common to scene and one or more scenes in the flow /
+					//a aloww them to be set with T/F add preset delete preset
+					[wordname /T/F- remove T/F set ] xxxxx:true xxxxx:false xxxxx:true
+				</div>
+				<h3>Flow: - Scene PostSets</h3>
+				<div>
+					<p>Quadroo : Flow: - Scene PostSets Flow Chosen:xxxxxxx any
+						word from scene is set to TRUE/False in the postset Presets:
+						//choose from common words for preset, any word from the scene can
+						be in the postset add postset delete postset [wordname /T/F ]
+						xxxxx:true xxxxx:false xxxxx:false</p>
+				</div>
+				<h3>Traverse Flow</h3>
+				<div>
+					<p>Quadroo Traverse Flow   Flow Selected
+						//====Navigation========//</p>
+                  <button onclick="doTraverseFlow()">
+						TraverseSelected <img src="images/concepts.png">
+					</button>
+					<div></div>
+					<div id="replylist"></div>
+				</div>
+				<h3>Flow: Run Prototype</h3>
+				<div>
+					<p>Quadroo Flow -Run Prototype Flow Selected
+						//====Navigation========//</p>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+<div id="dialog-modal" overflow:scroll;max-height:400px;"  title="Navigating FLows">  </div>
+
+/
+</body>
+</html>

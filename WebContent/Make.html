@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>In Mood</title>
+		<link rel="stylesheet" href="themes/aqua.min.css" />
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile.structure-1.3.2.min.css" />
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+		 <script src="js/AppFlow.js"></script>
+	</head>
+<body>
+    <div data-role="page">
+ 
+        <div data-role="header">
+            <h1>Welcome To : Now I am in... </h1>
+             
+        </div><!-- /header -->
+ 
+        <div data-role="content">
+        
+   
+        
+          <div data-role="fieldcontain">
+    <label for="mw1">First Mood Word:</label>
+    <input type="text" class="mw" id="mw1" value=""  />
+    <label for="mw2">Second Mood Word:</label>
+    <input type="text" class="mw"  id="mw2" value=""  />
+    <label for="mw3">Third Mood Word:</label>
+    <input type="text" class="mw"  id="mw3" value=""  />
+    <label for="mw4">Fourth Mood Word:</label>
+    <input type="text" class="mw"  id="mw4" value=""  />
+    <label for="mw5">Fifth Mood Word:</label>
+    <input type="text" class="mw"  id="mw5" value=""  />
+    
+</div>	
+			<a href="index.html" data-inline="true" data-role="button" data-inline="true">Log Off</a>
+           <button data-role="button" data-inline="true" data-theme="a" onclick="doCreate();">Create a Mood </button>    
+          
+           
+<br>Mood In The Making:<span id="cmood"></span>
+
+        </div><!-- /content -->
+ 
+        <div data-role="footer">
+            <h4>...my Moods</h4>
+        </div><!-- /footer -->
+ 
+    </div><!-- /page -->
+    <script>
+    var W;
+  
+   function doCreate() { 
+   
+   
+   var  data = "{W:'" +  W + "'}";
+    alert ("data to pass"  + data );
+    url = appurl + 'QuickMood';
+    invokeCreate(url, data);
+    
+} 
+    
+     $(document).ready(function() {
+     $( ".mw" ).keydown(function( event ) {
+   stringMood();
+  // alert ("doc ready');
+  }) } );
+    function stringMood() {
+    // alert ("in string");
+    var vt1 = ($('#mw1').val()).replace(/\s{2,}/g, '_');
+    vt1=vt1.replace(/ /g,"_");
+    var vt2 = ($('#mw2').val()).replace(/\s{2,}/g, '_');
+     vt2=vt2.replace(/ /g,"_");
+    var vt3 = ($('#mw3').val()).replace(/\s{2,}/g, '_');
+     vt3=vt3.replace(/ /g,"_");
+    var vt4 = ($('#mw4').val()).replace(/\s{2,}/g, '_'); 
+     vt4=vt4.replace(/ /g,"_");
+    var vt5 = ($('#mw5').val()).replace(/\s{2,}/g, '_');
+     vt5=vt5.replace(/ /g,"_");
+    W =  vt1+"_" +vt2+"_"+vt3+"_"+vt4+"_"+vt5  ;
+    $("#cmood").html(W);    }
+   // alert ("W collected:" + W); }
+   
+   
+
+
+function invokeCreate(curl, cdata) {
+
+
+    // Create our XMLHttpRequest object
+    var hr = new XMLHttpRequest();
+
+    var url = curl + "?UIdata=" + cdata;
+    alert("data before" +  "url:" + url);
+    //   var uurl = '"'+url+'"';
+    hr.open("GET", url, false);
+    hr.send(null);
+    var docr = hr.responseText;
+   
+    var jso = JSON.parse(docr);
+     
+    var js2 = jso.replystatus;
+    
+    
+    alert("Reply:" + js2);
+    if (js2=='ok') {alert ("new mood created");
+   // continuity ..has to have server interaction; however we can automate the meaningful retrieval by following convention
+   //on design e.g  mood is in current scne , so we can write a verb on client side to get current Mood, which will stillget from  server in the F area of QuadRR.
+   //similarly getContinuity will initialise the current continuity from the server and write the other way. 
+     }
+     }
+    </script>
+</body>
+</html>

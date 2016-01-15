@@ -1,0 +1,131 @@
+ Volume in drive C is Acer
+ Volume Serial Number is EEBF-9059
+
+ Directory of C:\ActApprent\WS\pureQuadroo\src
+
+09/03/2013  04:06 PM             1,521 AddW_S.java
+in:
+  String W =  rr.W;
+	  int luid =rr.uid;
+	  String m = rr.m;
+	  statement = rr.statement;
+ out: reply.put("result","done");replystatus="Error";;
+ 	  
+	  
+09/03/2013  04:06 PM               439 AFlowScene_S.java
+
+NOT READY
+
+
+09/03/2013  04:06 PM             1,878 AFlow_S.java
+String W =  rr.W;
+	  int luid =rr.uid;
+	  String m = rr.m;
+	  statement = rr.statement;
+ out: reply.put("result","Done");replystatus="Ok";
+ 	  
+
+09/03/2013  04:06 PM             2,757 AFScene_S.java
+String W =  rr.W;
+	 	 int luid = rr.uid;
+	 	 int fidi = rr.fid;
+	 	 statement = rr.statement;
+	 	 reply.put("result", "scene exists in flow") ;
+
+09/03/2013  04:06 PM             1,291 AIamHere_S.java
+not ready
+
+
+09/03/2013  04:06 PM               373 ANSFromWord_S.java
+in:
+int luid  = rr.uid;
+  	String W =   rr.W;
+  out
+  	rr.N = ans;
+09/03/2013  04:06 PM             1,041 ANspace_S.java
+int  uid = rr.uid;
+ String s =  rr.W;
+ statement = rr.statement;
+ 
+
+09/03/2013  04:06 PM               258 ASceneWord_S.java
+09/03/2013  04:06 PM               861 AScene_S.java
+in:
+ String W =  rr.S;
+	  int luid =rr.uid;
+	  String m = rr.m;
+	  statement = rr.statement;
+out:
+reply.put("result", "Done");	  
+
+09/03/2013  04:06 PM             1,466 ASWord_S.java
+in:
+String W =  rr.W;
+	 	int luid = rr.uid;
+	 	int sidi = rr.sid;
+	 	statement = rr.statement;
+out:reply.put("result", "Done");
+	 	
+09/03/2013  04:06 PM             1,596 AWord_S.java
+ String W =  rr.W;
+	  int luid =rr.uid;
+	  String m = rr.m;
+	  statement = rr.statement;
+	  
+	  
+09/03/2013  04:06 PM             1,140 CWord_S.java
+in: String W =  rr.W;
+	  int luid =rr.uid;
+	  String nW =rr.nW;
+	  statement = rr.statement;
+out:	 replystatus = "done" 
+	  
+09/03/2013  04:06 PM             1,342 DFlow_S.java
+String W =  rr.S;
+	  int luid =rr.uid;
+	  statement = rr.statement;
+out:reply.put("result", "flow not found")
+
+09/03/2013  04:06 PM             1,331 DFScene_S.java
+String W =  rr.W;
+	 	 int luid = rr.uid;
+	 	 int fidi = rr.fid;
+	 	statement = rr.statement;
+
+09/03/2013  04:06 PM             1,196 DFSid_S.java
+in:
+int wi =  rr.wid;
+		 	 int luid = rr.uid;
+		 	 int fidi = rr.fid;
+		 	statement = rr.statement;
+
+09/03/2013  04:06 PM             1,336 DNspace_S.java
+String W =  rr.W;
+	  int luid =rr.uid;
+	  statement = rr.statement;
+
+
+09/03/2013  04:06 PM             1,465 DScene_S.java
+
+09/03/2013  04:07 PM             1,114 DSWord_S.java
+09/03/2013  04:07 PM             1,379 DWord_S.java
+09/03/2013  04:07 PM               782 extractNS_S.java
+09/03/2013  04:07 PM               940 FNSpace_S.java
+09/03/2013  04:07 PM             1,308 FScene_S.java
+09/03/2013  04:07 PM               986 FWord_S.java
+09/03/2013  04:07 PM             1,023 GWord_S.java
+09/03/2013  04:07 PM             1,509 LFScenes_S.java
+09/03/2013  04:07 PM               913 LogIn_S.java
+09/03/2013  04:07 PM             1,541 LSAWords_S.java
+09/03/2013  04:07 PM             2,858 LSWords_S.java
+09/03/2013  04:06 PM             3,291 RQSetVSW_S.java
+09/03/2013  04:06 PM               674 RQSetV_S.java
+09/03/2013  04:06 PM             1,002 SendWordS2S_S.java
+09/03/2013  04:06 PM             1,603 SetVFSS_S.java
+09/03/2013  04:06 PM             1,527 SetVFSW_S.java
+09/03/2013  04:06 PM             1,494 SetVF_S.java
+09/03/2013  04:06 PM             3,287 SetVSW_S.java
+09/03/2013  04:06 PM             1,482 SetVS_S.java
+09/03/2013  04:06 PM             1,529 SetWdesc_S.java
+              37 File(s)         51,533 bytes
+               0 Dir(s)  173,931,429,888 bytes free
